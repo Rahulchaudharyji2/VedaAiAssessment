@@ -4,7 +4,7 @@ Welcome to the VedaAI Hiring Assignment submission! This repository contains a f
 
 ## 🚀 Live Demo
 
-**Live URL:** [Insert your Vercel URL here]
+**Live URL:** https://vedaai-delta-cyan.vercel.app/
 
 ## ✨ Features and Capabilities
 
