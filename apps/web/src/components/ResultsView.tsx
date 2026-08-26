@@ -47,6 +47,10 @@ export function ResultsView({ data, answerSheetFile }: ResultsViewProps) {
   }
 
   const selectedQuestion = data?.questions.find(q => q.id === expandedId);
+  const isSelectedWrong = selectedQuestion && selectedQuestion.marks.split('/')[0] === "0";
+  const boxBorderColor = isSelectedWrong ? "border-red-500" : "border-green-500";
+  const boxBgColor = isSelectedWrong ? "bg-red-500/10" : "bg-green-500/10";
+  const badgeBgColor = isSelectedWrong ? "bg-red-500" : "bg-green-500";
 
   // Fallback mock data if API wasn't actually called for testing layout
   const displayData = data?.questions || [
@@ -163,7 +167,7 @@ export function ResultsView({ data, answerSheetFile }: ResultsViewProps) {
                 {selectedQuestion?.boundingBoxes?.filter(box => box.page === pageNumber).map((box, i) => (
                   <div 
                     key={i}
-                    className="absolute border-2 border-green-500 bg-green-500/10 rounded-md transition-all duration-300 pointer-events-none"
+                    className={`absolute border-2 ${boxBorderColor} ${boxBgColor} rounded-md transition-all duration-300 pointer-events-none`}
                     style={{
                       top: `${box.ymin}%`,
                       left: `${box.xmin}%`,
@@ -171,7 +175,7 @@ export function ResultsView({ data, answerSheetFile }: ResultsViewProps) {
                       width: `${box.xmax - box.xmin}%`,
                     }}
                   >
-                    <div className="absolute -top-3 -left-3 bg-green-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
+                    <div className={`absolute -top-3 -left-3 ${badgeBgColor} text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm`}>
                       Q{selectedQuestion.number}
                     </div>
                   </div>
@@ -193,7 +197,7 @@ export function ResultsView({ data, answerSheetFile }: ResultsViewProps) {
               {selectedQuestion?.boundingBoxes?.map((box, i) => (
                 <div 
                   key={i}
-                  className="absolute border-2 border-green-500 bg-green-500/10 rounded-md transition-all duration-300 pointer-events-none"
+                  className={`absolute border-2 ${boxBorderColor} ${boxBgColor} rounded-md transition-all duration-300 pointer-events-none`}
                   style={{
                     top: `${box.ymin}%`,
                     left: `${box.xmin}%`,
@@ -201,7 +205,7 @@ export function ResultsView({ data, answerSheetFile }: ResultsViewProps) {
                     width: `${box.xmax - box.xmin}%`,
                   }}
                 >
-                  <div className="absolute -top-3 -left-3 bg-green-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
+                  <div className={`absolute -top-3 -left-3 ${badgeBgColor} text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm`}>
                     Q{selectedQuestion.number}
                   </div>
                 </div>
