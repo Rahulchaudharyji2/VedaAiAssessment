@@ -1,6 +1,6 @@
 # VedaAI - AI Assessment Extraction & Answer Mapping
 
-Welcome to the VedaAI Hiring Assignment submission! This repository contains a full-stack, AI-powered web application that allows teachers to upload a Question Paper and a Student's handwritten Answer Sheet, extracting the questions, mapping the answers, grading them, and highlighting their exact spatial locations on the original documents.
+Welcome to the VedaAI Hiring Assignment submission! This repository contains a full-stack, AI-powered web application that allows teachers to upload a Question Paper and a Student's handwritten Answer Sheet, extracting the questions, mapping the answers, grading them, and highlighting their exact spatial locations on the original documents
 
 ## 🚀 Live Demo
 
